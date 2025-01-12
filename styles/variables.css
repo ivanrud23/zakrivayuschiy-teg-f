@@ -1,1 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --main-text: 'Inter-Variable';
+  --accent-text: 'PressStart2P';
+  --tittle-text-weight: 700;
+  --paragraph-text-weight: 400;
+}
