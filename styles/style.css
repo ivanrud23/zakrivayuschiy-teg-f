@@ -10,24 +10,6 @@
 
 */
 
-@keyframes heart-scale {
-  0% {
-    scale: 1;
-  }
-  100% {
-    scale: 1.25;
-  }
-}
-
-@keyframes heart-sparks {
-  0% {
-    fill: transparent;
-  }
-  100% {
-    fill: #ff0000;
-  }
-}
-
 h1,
 h2,
 h3,
@@ -63,14 +45,13 @@ p {
 
 .header {
   width: clamp(23.438rem, 8.929rem + 38.69vw, 43.75rem);
-  height: clamp(20.25rem, 19.25rem + 5vw, 23rem);
   margin: 100px 0 100px;
   background-color: rgb(255, 255, 255);
   border: 2px solid #1a1a1a;
 }
 
 .logo {
-  font-family: "PressStart2P";
+  font-family: PressStart2P, sans-serif;
   text-align: center;
   margin-top: clamp(7.5rem, 7.143rem + 0.952vw, 8rem);
 }
@@ -81,7 +62,13 @@ p {
 .logo h1 {
   font-size: clamp(0.875rem, 0.473rem + 1.071vw, 1.438rem);
   margin-top: 20px;
+  margin-bottom: clamp(7.5rem, 6.923rem + 2.46vw, 8rem);
   text-transform: uppercase;
+}
+
+main {
+  display: grid;
+  justify-content: center;
 }
 
 .card-list {
@@ -92,7 +79,7 @@ p {
   background-color: rgb(255, 255, 255);
   border: 2px solid #1a1a1a;
   margin-bottom: 50px;
-  font-family: "Inter-Variable";
+  font-family: Inter-Variable, sans-serif;
   font-size: 18px;
 }
 
@@ -116,7 +103,7 @@ p {
 }
 
 .label {
-  font-family: "PressStart2P";
+  font-family: PressStart2P, sans-serif;
   font-size: 14px;
   position: absolute;
   right: clamp(0.625rem, -0.457rem + 4.62vw, 1.563rem);
@@ -134,38 +121,32 @@ p {
   }
 }
 
-.card-img-multilple {
+.card-img-brightness {
   filter: brightness(200%);
 }
 
-.card-img-overlay {
-  position: absolute;
-  mix-blend-mode: overlay;
+.card-img-blur {
+  filter: blur(20px);
 }
 
-.card-img-darken {
-  position: absolute;
-  mix-blend-mode: darken;
+.card-img-contrast {
+  filter: contrast(200%);
 }
 
-.card-img-color {
-  position: absolute;
-  mix-blend-mode: color;
+.card-img-grayscale {
+  filter: grayscale(50%);
 }
 
-.card-img-hue {
-  position: absolute;
-  mix-blend-mode: hue;
+.card-img-hue-rotate {
+  filter: hue-rotate(0.5turn);
 }
 
-.card-img-difference {
-  position: absolute;
-  mix-blend-mode: difference;
+.card-img-invert {
+  filter: invert(100%);
 }
 
-.card-img-saturation {
-  position: absolute;
-  mix-blend-mode: saturation;
+.card-img-multi-filter {
+  filter: sepia(1) contrast(2) brightness(200%);
 }
 
 .card p {
@@ -192,39 +173,37 @@ p {
 .card__icon-button:focus-visible {
   outline: none;
   border: 2px solid rgb(0, 0, 0);
-  transition: border 0.3s ease;
   position: relative;
 }
 
 .card__icon-button {
   border: 2px solid rgb(0, 0, 0, 0);
-  margin-right: 7px;
-  width: 38px;
-  height: 38px;
+  margin-right: 5px;
   background-color: transparent;
   padding: 0;
   cursor: pointer;
+  transition: border 0.3s ease;
+  display: flex;
 }
 
-.card__like-button {
+.button {
   cursor: pointer;
   width: 130px;
-  height: 38px;
   margin-right: 25px;
   margin-bottom: 25px;
   border-radius: 0;
   background-color: #ffffff;
-  font-family: PressStart2P;
+  font-family: PressStart2P, sans-serif;
   font-size: 14px;
   position: relative;
   overflow: hidden;
-  transition: mix-blend-mode 0.5s ease-in-out;
+  transition: box-shadow 0.3s ease;
+  padding: 0;
 }
 
-.card__like-button:focus-visible {
+.button:focus-visible {
   outline: none;
   box-shadow: 2px 2px 0px 0px rgb(0 0 0);
-  transition: box-shadow 0.3s ease;
 }
 
 .button__text {
@@ -232,123 +211,139 @@ p {
   z-index: 1;
   color: #ffffff;
   mix-blend-mode: difference;
+  margin-top: 10px;
+  margin: 10px 0 10px;
+  display: inline-block;
 }
 
-.card__like-button:hover::before {
-  transition: width 0.5s ease-in-out;
+.button:hover::before {
   width: 100%;
 }
 
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
   width: 0;
   background-color: rgb(0, 0, 0);
+  transition: width 0.5s ease-in-out;
 }
 
 .like-icon {
-  width: 38px;
-  height: 38px;
-}
-
-footer {
-  display: flex;
+  width: 39px;
   justify-content: center;
 }
 
-.footer_button {
-  height: 56px;
+.save_button {
+  height: 85px;
   width: clamp(18.75rem, -4.004rem + 100.02vw, 21.3rem);
   border-radius: 0;
-  font-family: PressStart2P;
+  font-family: PressStart2P, sans-serif;
   font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: auto;
   margin-bottom: 100px;
-  margin-right: 0;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: mix-blend-mode 0.5s ease-in-out;
 }
 
-.footer_button:hover::before {
-  transition: width 0.5s ease-in-out;
+.save_button:hover::before {
   width: 100%;
 }
 
-.footer_button::before {
+.save_button::before {
   content: "";
   position: absolute;
   inset: 0;
   width: 0;
   background-color: rgb(0, 0, 0);
+  transition: width 0.5s ease-in-out;
 }
 
 .floppy-icon {
-  margin-top: 15px;
   color: #ffffff;
   mix-blend-mode: difference;
-}
-
-@media (min-width: 376px) {
-  .footer_button {
-    flex-direction: row;
-    justify-content: start;
-  }
-
-  .button__text {
-    margin-top: 17px;
-    margin-bottom: 17px;
-  }
-
-  .floppy-icon {
-    width: 20px;
-    height: 20px;
-    margin-top: 0px;
-    margin-left: 15px;
-    margin-right: 9px;
-  }
+  width: 29px;
 }
 
 .diaolg-floppy:is([open]) {
   width: clamp(21.313rem, 21.04rem + 1.36vw, 22.063rem);
   border: 2px solid #1a1a1a;
   display: inline-block;
-  font-family: "PressStart2P";
+  font-family: PressStart2P, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
-  margin-bottom: 300px;
   margin: auto;
   padding: 30px 42px 0;
 }
 
+.save-button {
+  margin-right: 0;
+  justify-self: center;
+  width: 314px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.save-button .floppy-icon {
+  width: 28px;
+  margin-top: 5px;
+}
+
+.save-button .button__text {
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 376px) {
+  .save-button {
+    margin-right: 0;
+    justify-self: center;
+    width: 340px;
+    padding: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .button__text {
+    margin: 10px 0 10px;
+  }
+
+  .save-button .floppy-icon {
+    width: 22px;
+    margin-right: 7px;
+    margin-left: 10px;
+  }
+
+  .diaolg-floppy:is([open]) {
+    padding: 30px 30px 0;
+  }
+}
+
 .diaolg-floppy-close {
   display: flex;
-  align-items: center;
   line-height: 150%;
   margin-bottom: 30px;
 }
 
-.floppy-close-button {
-  border: 2px solid rgb(0, 0, 0);
-  margin: auto;
+.diaolg-floppy .button {
   width: 100%;
-  height: 38px;
-  margin-bottom: 38px;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: mix-blend-mode 0.5s ease-in-out;
+  margin-right: 0;
+}
+.diaolg-floppy .floppy-text {
+  margin: 0;
 }
 
 .floppy-close-button:hover::before {
-  transition: width 0.5s ease-in-out;
   width: 100%;
 }
 
@@ -358,13 +353,13 @@ footer {
   inset: 0;
   width: 0;
   background-color: rgb(0, 0, 0);
+  transition: width 0.5s ease-in-out;
 }
 
 .diaolg-floppy .floppy-icon {
   margin-right: 20px;
   margin-top: 0px;
   width: 89px;
-  height: 39px;
   margin-left: 0;
 }
 
