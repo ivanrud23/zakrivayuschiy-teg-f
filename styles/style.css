@@ -153,6 +153,7 @@ main {
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 27px;
+  line-height: 21px;
 }
 
 .card p:first-of-type {
@@ -193,6 +194,7 @@ main {
   margin-right: 25px;
   margin-bottom: 27px;
   border-radius: 0;
+  border-style: solid;
   background-color: #ffffff;
   font-family: PressStart2P, sans-serif;
   font-size: 14px;
